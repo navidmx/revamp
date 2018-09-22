@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>REVAMP</title>
+    <link href="css/home.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="header">
+        <img src="assets/logo.png"><br>
+        <input type="text">
+    </div>
+
+    <iframe id="old" src=""></iframe>
+    <iframe id="new" src=""></iframe>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="js/script.js"></script>
+    <script>
+        
+        $("input").on("keydown", function search(e) {
+            if (e.keyCode == 13) {
+                update($(this).val());
+            }
+        });
+        
+        function update(website) {
+            $("#old")
+                .attr("src", "origin/" + getID(website) + "/" + getID(website) + ".htm")
+                .css("opacity", 1);
+            $("#new")
+                .attr("src", "new.html?website=" + website)
+                .css("opacity", 1);
+        }
+
+    </script>
+
+</body>
+
+</html>
